@@ -1,0 +1,29 @@
+﻿@model AttributeRoutingDemo.ViewModels.Home.UserDocumentsVM
+@{
+    ViewBag.Title = "Documents";
+}
+
+@Html.ActionLink("Back to User Page", "Details", new { id = Model })
+
+@Html.ActionLink("Back to Index", "Index")
+
+<h2>Documents for User #@Model.UserID</h2>
+
+<p>
+    Current Filter: "@Model.SelectedFilter"
+</p>
+
+@using(Html.BeginForm())
+{
+    <div>
+        @Html.HiddenFor(x => x.UserID)
+        <div>
+            Select a Filter:
+            @Html.DropDownListFor(x => x.SelectedFilter, new SelectList(Model.Filters))
+        </div>
+        <div>
+            <input type="submit" value="Apply Filter" />
+        </div>
+    </div>
+}
+

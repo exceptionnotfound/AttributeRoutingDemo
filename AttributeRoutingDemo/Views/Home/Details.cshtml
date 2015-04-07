@@ -1,0 +1,11 @@
+﻿@model Int32
+
+@{
+    ViewBag.Title = "User";
+}
+
+@Html.ActionLink("Back to Index", "Index")
+
+<h2>User #@Model</h2>
+
+@Html.ActionLink("User Documents", "Documents", new { id = Model })
